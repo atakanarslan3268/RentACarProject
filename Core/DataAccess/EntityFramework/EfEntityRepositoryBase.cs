@@ -26,9 +26,9 @@ namespace Core.DataAccess.EntityFramework
 
         public void Delete(TEntity entity)
         {
-            using (TContext contex = new TContext())
+            using (TContext context = new TContext())
             {
-                var deletedEntity = contex.Entry(entity);//referansi yakala
+                var deletedEntity = context.Entry(entity);//referansi yakala
                 deletedEntity.State = EntityState.Deleted;//o silinecek bir nesne
                 contex.SaveChanges();//ekle ve kaydet
             }
